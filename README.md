@@ -1,1 +1,1 @@
-# expense-calculator
+# Expense Calculator
