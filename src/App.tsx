@@ -1,6 +1,8 @@
 import './App.css';
 
-import ExpenseItem from './components/ExpenseItem/ExpenseItem';
+// import ExpenseItem from './components/ExpenseItem/ExpenseItem';
+
+import Expenses from './components/Expenses/Expenses';
 
 function App() {
 
@@ -28,9 +30,7 @@ function App() {
   return (
     <>
      <h1 className='app-title headline-large'>Expense Calculator</h1>
-     <ExpenseItem date={expense[0].date} title={expense[0].title} price={expense[0].price} />
-     <ExpenseItem date={expense[1].date} title={expense[1].title} price={expense[1].price} />
-     <ExpenseItem date={expense[2].date} title={expense[2].title} price={expense[2].price} />
+     <Expenses items={ expense } />
     </>
   );
 }

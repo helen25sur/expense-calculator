@@ -1,10 +1,7 @@
+import { IExpenseDate } from '../../../models/Expenses';
 import './ExpenseDate.css';
 
-interface ExpenseDate {
-  date: Date;
-}
-
-function ExpenseDate(props: ExpenseDate) {
+function ExpenseDate(props: IExpenseDate) {
 
   const month = props.date.toLocaleString('en-US', { month: 'long' });
   const day = props.date.getDate();
