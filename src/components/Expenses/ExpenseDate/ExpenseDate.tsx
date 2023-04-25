@@ -1,7 +1,7 @@
 import { IExpenseDate } from '../../../models/Expenses';
 import './ExpenseDate.css';
 
-function ExpenseDate(props: IExpenseDate) {
+const ExpenseDate = (props: IExpenseDate) => {
 
   const month = props.date.toLocaleString('en-US', { month: 'long' });
   const day = props.date.getDate();

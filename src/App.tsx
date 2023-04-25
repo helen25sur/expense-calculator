@@ -1,8 +1,7 @@
 import './App.css';
 
-// import ExpenseItem from './components/ExpenseItem/ExpenseItem';
-
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
 
@@ -30,6 +29,7 @@ function App() {
   return (
     <>
      <h1 className='app-title headline-large'>Expense Calculator</h1>
+     <NewExpense />
      <Expenses items={ expense } />
     </>
   );

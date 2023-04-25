@@ -1,16 +1,24 @@
-import { IExpenseItem } from '../../models/Expenses';
+import { useState } from 'react';
 
-import Card from '../UI/Card/Card';
+import { IExpenseItem } from '../../../models/Expenses';
+
+import Card from '../../UI/Card/Card';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
 
 import './ExpenseItem.css';
 
-function ExpenseItem(props: IExpenseItem) {
+const ExpenseItem = (props: IExpenseItem) => {
+
+  const [title, setTitle] = useState(props.title);
+
+  const clickHandler = () => {
+    setTitle('Updated!');
+  }
 
   return (
       <Card className='expense-item'>
         <ExpenseDate date={props.date} />
-        <h2 className='expense-item_title body-large'>{props.title}</h2>
+        <h2 className='expense-item_title body-large' onClick={clickHandler}>{title}</h2>
         <div className='expense-item_price label-large'>€{props.price}</div>
       </Card>
   )

@@ -1,11 +1,11 @@
 import { IExpenses } from '../../models/Expenses';
 
-import ExpenseItem from '../ExpenseItem/ExpenseItem';
+import ExpenseItem from './ExpenseItem/ExpenseItem';
 import Card from '../UI/Card/Card';
 
 import './Expenses.css';
 
-function Expenses(props: IExpenses) {
+const Expenses = (props: IExpenses) => {
   console.log(props);
   
   return (
