@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = (props: { onSaveExpenseData: (enteredExpenseData: { title: string; amount: number; date: Date; }) => void; }) => {
+const ExpenseForm = (props: { onSaveExpenseData: (enteredExpenseData: { title: string; amount: number; date: Date; }) => void; onCancelCreating: () => void; }) => {
   const [userInput, setUserInput] = useState({
     enteredTitle: '',
     enteredAmount: '',
@@ -54,6 +54,8 @@ const ExpenseForm = (props: { onSaveExpenseData: (enteredExpenseData: { title: s
       enteredAmount: '',
       enteredDate: ''
     });
+
+    props.onCancelCreating();
   }
 
   return (
@@ -76,6 +78,7 @@ const ExpenseForm = (props: { onSaveExpenseData: (enteredExpenseData: { title: s
       </div>
 
       <div className='new-expense_actions'>
+        <button className='label-large' onClick={props.onCancelCreating}>Cancel</button>
         <button className='label-large' type='submit'>Add Expense</button>
       </div>
     </form>
