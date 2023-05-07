@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { IExpenseItem } from '../../models/Expenses';
 
-import ExpensesFilter from './ExpensesFilter/ExpensesFilter';
+import './Expenses.css';
+
 import Card from '../UI/Card/Card';
 
-import './Expenses.css';
+import ExpensesFilter from './ExpensesFilter/ExpensesFilter';
 import ExpensesList from './ExpensesList/ExpensesList';
+import ExpensesChart from './ExpensesChart/ExpensesChart';
 
 const Expenses = (props: { items: IExpenseItem[]; }) => {
   const [chosenYear, setChosenYear] = useState('2023');
@@ -21,6 +23,7 @@ const Expenses = (props: { items: IExpenseItem[]; }) => {
       <ExpensesFilter
         selected={chosenYear}
         onSaveChosenYear={saveChosenYearHandler} />
+      <ExpensesChart expenses={filteredExpenses} />
       <ExpensesList items={filteredExpenses}/>
     </Card>
   );
