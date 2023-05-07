@@ -18,24 +18,18 @@ const Expenses = (props: IExpenses) => {
 
   return (
     <Card className='expenses'>
-      <ExpensesFilter 
+      <ExpensesFilter
         selected={chosenYear}
-        onSaveChosenYear={saveChosenYearHandler}/>
-      <ExpenseItem
-        id={props.items[0].id}
-        date={props.items[0].date}
-        title={props.items[0].title}
-        amount={props.items[0].amount} />
-      <ExpenseItem
-        id={props.items[1].id}
-        date={props.items[1].date}
-        title={props.items[1].title}
-        amount={props.items[1].amount} />
-      <ExpenseItem
-        id={props.items[2].id}
-        date={props.items[2].date}
-        title={props.items[2].title}
-        amount={props.items[2].amount} />
+        onSaveChosenYear={saveChosenYearHandler} />
+      {props.items.map(exp => {
+        return (
+          <ExpenseItem
+            key={exp.id}
+            id={exp.id}
+            date={exp.date}
+            title={exp.title}
+            amount={exp.amount} />)
+      })}
     </Card>
   );
 }
