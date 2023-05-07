@@ -19,7 +19,7 @@ const ExpenseItem = (props: IExpenseItem) => {
       <Card className='expense-item'>
         <ExpenseDate date={props.date} />
         <h2 className='expense-item_title body-large' onClick={clickHandler}>{title}</h2>
-        <div className='expense-item_price label-large'>€{props.price}</div>
+        <div className='expense-item_price label-large'>€{props.amount}</div>
       </Card>
   )
 }

@@ -1,8 +1,8 @@
 export interface IExpenseItem {
-  // id: string;
+  id: string;
   title: string;
   date: Date;
-  price: number;
+  amount: number;
 }
 
 export interface IExpenseDate {
