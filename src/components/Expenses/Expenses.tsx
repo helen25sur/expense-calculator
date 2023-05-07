@@ -1,35 +1,27 @@
 import { useState } from 'react';
-import { IExpenses } from '../../models/Expenses';
+import { IExpenseItem } from '../../models/Expenses';
 
-import ExpenseItem from './ExpenseItem/ExpenseItem';
 import ExpensesFilter from './ExpensesFilter/ExpensesFilter';
 import Card from '../UI/Card/Card';
 
 import './Expenses.css';
+import ExpensesList from './ExpensesList/ExpensesList';
 
-const Expenses = (props: IExpenses) => {
+const Expenses = (props: { items: IExpenseItem[]; }) => {
   const [chosenYear, setChosenYear] = useState('2023');
 
   const saveChosenYearHandler = (year: string) => {
-    console.log('in Expenses.tsx');
-    console.log(year);
     setChosenYear(year);
   }
+
+  const filteredExpenses: IExpenseItem[] = [...props.items].filter(i => i.date.getFullYear().toString() === chosenYear);
 
   return (
     <Card className='expenses'>
       <ExpensesFilter
         selected={chosenYear}
         onSaveChosenYear={saveChosenYearHandler} />
-      {props.items.map(exp => {
-        return (
-          <ExpenseItem
-            key={exp.id}
-            id={exp.id}
-            date={exp.date}
-            title={exp.title}
-            amount={exp.amount} />)
-      })}
+      <ExpensesList items={filteredExpenses}/>
     </Card>
   );
 }

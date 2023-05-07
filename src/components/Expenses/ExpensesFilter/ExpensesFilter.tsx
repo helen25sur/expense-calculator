@@ -5,7 +5,6 @@ const ExpensesFilter = (props: { onSaveChosenYear: (year: string) => void; selec
 
   const filterChangeHandler = (event: ChangeEvent) => {
     const target = event.target as HTMLSelectElement;
-    // console.log(target.value);
     props.onSaveChosenYear(target.value);
   }
 
@@ -17,7 +16,7 @@ const ExpensesFilter = (props: { onSaveChosenYear: (year: string) => void; selec
           <option value='2023'>2023</option>
           <option value='2022'>2022</option>
           <option value='2021'>2021</option>
-          <option value='2022'>2020</option>
+          <option value='2020'>2020</option>
         </select>
       </div>
     

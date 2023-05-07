@@ -17,13 +17,13 @@ const DUMMY_EXPENSES: IExpenseItem[] = [
   {
     id: 'el2',
     title: 'Bus Tickets',
-    date: new Date(2023, 3, 15),
+    date: new Date(2022, 3, 15),
     amount: 38.6
   },
   {
     id: 'el3',
     title: 'Hotel room',
-    date: new Date(2023, 3, 17),
+    date: new Date(2021, 3, 17),
     amount: 75.5
   },
 ];
@@ -45,7 +45,7 @@ function App() {
     <>
      <h1 className='app-title headline-large'>Expense Calculator</h1>
      <NewExpense onAddExpense={addExpenseHandler} />
-     <Expenses items={ expenses } />
+     <Expenses items={expenses} />
     </>
   );
 }

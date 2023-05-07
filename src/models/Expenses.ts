@@ -9,6 +9,6 @@ export interface IExpenseDate {
   date: Date;
 }
 
-export interface IExpenses {
+export interface IExpenses<T> extends Array<T> {
   items: IExpenseItem[]
 }
