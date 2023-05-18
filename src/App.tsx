@@ -1,36 +1,51 @@
+import { useState } from 'react';
+
 import './App.css';
 
-import ExpenseItem from './components/ExpenseItem/ExpenseItem';
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
+
+import { IExpenseItem } from './models/Expenses';
+
+const DUMMY_EXPENSES: IExpenseItem[] = [
+  {
+    id: 'el1',
+    title: 'Coffee and cake',
+    date: new Date(2023, 3, 23),
+    amount: 10.6
+  },
+  {
+    id: 'el2',
+    title: 'Bus Tickets',
+    date: new Date(2022, 3, 15),
+    amount: 38.6
+  },
+  {
+    id: 'el3',
+    title: 'Hotel room',
+    date: new Date(2021, 3, 17),
+    amount: 75.5
+  },
+];
 
 function App() {
 
-  const expense = [
-    {
-      id: 'el1',
-      title: 'Coffee and cake',
-      date: new Date(2023, 3, 23),
-      price: 10.6
-    },
-    {
-      id: 'el2',
-      title: 'Bus Tickets',
-      date: new Date(2023, 3, 15),
-      price: 38.6
-    },
-    {
-      id: 'el3',
-      title: 'Hotel room',
-      date: new Date(2023, 3, 17),
-      price: 75.5
-    },
-  ]
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+  const addExpenseHandler = (expense: IExpenseItem) => {
+    console.log('In App.tsx');
+    console.log(expense);
+
+    setExpenses((prev) => {
+      return [expense, ...prev];
+    });
+  }
 
   return (
     <>
      <h1 className='app-title headline-large'>Expense Calculator</h1>
-     <ExpenseItem date={expense[0].date} title={expense[0].title} price={expense[0].price} />
-     <ExpenseItem date={expense[1].date} title={expense[1].title} price={expense[1].price} />
-     <ExpenseItem date={expense[2].date} title={expense[2].title} price={expense[2].price} />
+     <NewExpense onAddExpense={addExpenseHandler} />
+     <Expenses items={expenses} />
     </>
   );
 }

@@ -1,0 +1,7 @@
+.expenses-list {
+  list-style: none;
+}
+
+.no-found {
+  font-size: 1.5rem;
+}
