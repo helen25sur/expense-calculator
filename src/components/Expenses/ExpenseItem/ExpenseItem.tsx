@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { IExpenseItem } from '../../../models/Expenses';
 
 import Card from '../../UI/Card/Card';
